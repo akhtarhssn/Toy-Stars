@@ -4,14 +4,14 @@ import hero3 from "../../../assets/banner/hero-3.png";
 import hero4 from "../../../assets/banner/hero-4.png";
 const Banner = () => {
   return (
-    <div className="carousel w-full my-16">
-      <div id="slide1" className="carousel-item relative w-full">
-        <div className="md:flex justify-between items-center w-full md:px-28">
+    <div className="carousel w-full md:my-16 ">
+      <div id="slide1" className="carousel-item relative w-full h-full">
+        <div className="flex md:flex-row flex-col-reverse gap-10 justify-end md:justify-between items-center md:w-full md:px-28">
           <div>
-            <p className="text-lg font-Nunito font-bold text-[#02224d] capitalize underline underline-offset-8 decoration-4 hover:decoration-mediumPurple">
+            <p className="md:text-lg font-Nunito font-bold text-[#02224d] capitalize underline underline-offset-8 decoration-4 hover:decoration-mediumPurple">
               Today`s Collection
             </p>
-            <h1 className="text-7xl font-black text-[#02224d] capitalize font-Nunito mt-4 mb-6">
+            <h1 className="md:text-7xl text-4xl font-black text-[#02224d] capitalize font-Nunito mt-4 mb-6">
               Where Joy and Adventure Await
             </h1>
             <p>
@@ -30,9 +30,9 @@ const Banner = () => {
               Explore
             </button>
           </div>
-          <img className="h-[760px]" src={hero1} alt="" />
+          <img className="h-[360px] md:h-[760px]" src={hero1} alt="" />
         </div>
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+        <div className="absolute flex justify-between transform md:-translate-y-1/2 md:left-5 md:right-5 md:top-1/2 top-1/3 gap-60 md:gap-0">
           <a href="#slide4" className="btn btn-circle hover:bg-mediumPurple">
             ❮
           </a>
@@ -41,13 +41,13 @@ const Banner = () => {
           </a>
         </div>
       </div>
-      <div id="slide2" className="carousel-item relative w-full">
-        <div className="md:flex justify-between items-center w-full md:px-28">
+      <div id="slide2" className="carousel-item relative w-full h-full">
+        <div className="flex md:flex-row flex-col-reverse gap-10 justify-end md:justify-between items-center md:w-full md:px-28">
           <div>
-            <p className="text-lg font-Nunito font-bold text-[#02224d] capitalize underline underline-offset-8 decoration-4 hover:decoration-mediumPurple">
+            <p className="md:text-lg font-Nunito font-bold text-[#02224d] capitalize underline underline-offset-8 decoration-4 hover:decoration-mediumPurple">
               Today`s Collection
             </p>
-            <h1 className="text-7xl font-black text-[#02224d] capitalize font-Nunito mt-4 mb-6">
+            <h1 className="md:text-7xl text-4xl font-black text-[#02224d] capitalize font-Nunito mt-4 mb-6">
               Where Playtime Knows No Bounds!
             </h1>
             <p>
@@ -64,9 +64,9 @@ const Banner = () => {
               Explore
             </button>
           </div>
-          <img className="h-[760px]" src={hero4} alt="" />
+          <img className="h-[360px] md:h-[760px]  " src={hero4} alt="" />
         </div>
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+        <div className="absolute flex justify-between transform md:-translate-y-1/2 md:left-5 md:right-5 md:top-1/2 top-1/3 gap-60 md:gap-0">
           <a href="#slide1" className="btn btn-circle hover:bg-mediumPurple">
             ❮
           </a>
@@ -75,13 +75,13 @@ const Banner = () => {
           </a>
         </div>
       </div>
-      <div id="slide3" className="carousel-item relative w-full">
-        <div className="md:flex justify-between items-center w-full md:px-28">
+      <div id="slide3" className="carousel-item relative w-full h-full">
+        <div className="flex md:flex-row flex-col-reverse gap-10 justify-end md:justify-between items-center md:w-full md:px-28">
           <div>
-            <p className="text-lg font-Nunito font-bold text-[#02224d] capitalize underline underline-offset-8 decoration-4 hover:decoration-mediumPurple">
+            <p className="md:text-lg font-Nunito font-bold text-[#02224d] capitalize underline underline-offset-8 decoration-4 hover:decoration-mediumPurple">
               Today`s Collection
             </p>
-            <h1 className="text-7xl font-black text-[#02224d] capitalize font-Nunito mt-4 mb-6">
+            <h1 className="md:text-7xl text-4xl font-black text-[#02224d] capitalize font-Nunito mt-4 mb-6">
               Unlock the Magic of Fun!
             </h1>
             <p>
@@ -99,9 +99,9 @@ const Banner = () => {
               Explore
             </button>
           </div>
-          <img className="h-[760px]" src={hero3} alt="" />
+          <img className="h-[360px] md:h-[760px]  " src={hero3} alt="" />
         </div>
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+        <div className="absolute flex justify-between transform md:-translate-y-1/2 md:left-5 md:right-5 md:top-1/2 top-1/3 gap-60 md:gap-0">
           <a href="#slide2" className="btn btn-circle hover:bg-mediumPurple">
             ❮
           </a>
@@ -110,13 +110,13 @@ const Banner = () => {
           </a>
         </div>
       </div>
-      <div id="slide4" className="carousel-item relative w-full">
-        <div className="md:flex justify-between items-center w-full md:px-28">
+      <div id="slide4" className="carousel-item relative w-full h-full">
+        <div className="flex md:flex-row flex-col-reverse gap-10 justify-end md:justify-between items-center md:w-full md:px-28">
           <div>
-            <p className="text-lg font-Nunito font-bold text-[#02224d] capitalize underline underline-offset-8 decoration-4 hover:decoration-mediumPurple">
+            <p className="md:text-lg font-Nunito font-bold text-[#02224d] capitalize underline underline-offset-8 decoration-4 hover:decoration-mediumPurple">
               Today`s Collection
             </p>
-            <h1 className="text-7xl font-black text-[#02224d] capitalize font-Nunito mt-4 mb-6">
+            <h1 className="md:text-7xl text-4xl font-black text-[#02224d] capitalize font-Nunito mt-4 mb-6">
               Toys that Spark Smiles and Memories!
             </h1>
             <p>
@@ -135,9 +135,9 @@ const Banner = () => {
               Explore
             </button>
           </div>
-          <img className="h-[760px]" src={hero2} alt="" />
+          <img className="h-[360px] md:h-[760px]  " src={hero2} alt="" />
         </div>
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+        <div className="absolute flex justify-between transform md:-translate-y-1/2 md:left-5 md:right-5 md:top-1/2 top-1/3 gap-60 md:gap-0">
           <a href="#slide3" className="btn btn-circle hover:bg-mediumPurple">
             ❮
           </a>
