@@ -1,3 +1,6 @@
+import CategoryTabs from "../../../components/CategoryTabs";
+import Product from "./Product";
+
 const Products = () => {
   return (
     <div className="my-20">
@@ -10,6 +13,16 @@ const Products = () => {
           toys. Explore, play, and ignite your imagination with our amazing
           collection of captivating products.
         </p>
+      </div>
+      <CategoryTabs />
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 my-16">
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
       </div>
     </div>
   );
