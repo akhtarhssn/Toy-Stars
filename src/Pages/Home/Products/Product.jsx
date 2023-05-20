@@ -1,7 +1,30 @@
+import { useContext } from "react";
 import product from "../../../assets/products/wanda.jpg";
 import { FaStar } from "react-icons/fa";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Product = () => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleToast = () => {
+    if (!user) {
+      toast.warning("Please Login First!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      navigate("/register");
+    }
+  };
+
   return (
     <div>
       <img src={product} alt="Product Image" className="rounded-xl" />
@@ -16,7 +39,10 @@ const Product = () => {
           </span>
         </div>
         <div className="">
-          <button className="my-8 border-2 border-purple-600 rounded-md px-5 py-2">
+          <button
+            className="my-8 border-2 border-purple-600 rounded-md px-5 py-2"
+            onClick={handleToast}
+          >
             View Details
           </button>
         </div>

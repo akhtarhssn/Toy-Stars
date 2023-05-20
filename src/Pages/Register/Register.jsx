@@ -6,7 +6,8 @@ import { AuthContext } from "../../Providers/AuthProvider";
 const Register = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const { createUser, signInWithGoogle } = useContext(AuthContext);
+  const { createUser, signInWithGoogle, updateUserProfile } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
 
@@ -17,6 +18,7 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const photo = form.photo.value;
 
     console.log(name, email, password);
 
@@ -26,6 +28,7 @@ const Register = () => {
         console.log(user);
         setSuccess("Registration Successful");
         setError("");
+        updateUserProfile(user, name, photo);
         navigate(from, { replace: true });
       })
       .catch((err) => {
@@ -96,6 +99,18 @@ const Register = () => {
               name="password"
               type="password"
               placeholder="password"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Photo URL</span>
+            </label>
+            <input
+              name="photo"
+              type="text"
+              placeholder="photo"
               className="input input-bordered"
               required
             />

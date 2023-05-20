@@ -1,0 +1,57 @@
+[
+  {
+    "picture": "path/to/picture1.jpg",
+    "name": "Superhero Action Figure 1",
+    "price": 29.99,
+    "ratings": 4.5,
+    "category": "Marvel",
+    "sellerName": "Super Toy Store",
+    "quantity": 10,
+    "sellerEmail": "seller@example.com",
+    "description": "This amazing Superhero Action Figure is perfect for fans of the Marvel universe. It features incredible detail and articulation, allowing you to recreate your favorite superhero moments. Add this must-have collectible to your collection today!"
+  },
+  {
+    "picture": "path/to/picture2.jpg",
+    "name": "Superhero Action Figure 2",
+    "price": 19.99,
+    "ratings": 4.0,
+    "category": "DC",
+    "sellerName": "Heroic Collectibles",
+    "quantity": 5,
+    "sellerEmail": "seller@example.com",
+    "description": "Get ready for epic battles with this DC Superhero Action Figure. With its dynamic pose and high-quality craftsmanship, it's a must-have for DC fans. Collect all your favorite characters and create your own heroic adventures!"
+  },
+  {
+    "picture": "path/to/picture3.jpg",
+    "name": "Transformer Action Figure",
+    "price": 39.99,
+    "ratings": 4.8,
+    "category": "Transformer",
+    "sellerName": "RoboToys",
+    "quantity": 8,
+    "sellerEmail": "seller@example.com",
+    "description": "Experience the excitement of Transformers with this incredible action figure. It can seamlessly transform from a vehicle to a robot, providing endless play possibilities. Gear up for thrilling battles and save the universe with this Transformer!"
+  },
+  {
+    "picture": "path/to/picture4.jpg",
+    "name": "Star Wars Action Figure",
+    "price": 24.99,
+    "ratings": 4.3,
+    "category": "Star Wars",
+    "sellerName": "Galactic Collectibles",
+    "quantity": 12,
+    "sellerEmail": "seller@example.com",
+    "description": "Immerse yourself in the Star Wars universe with this highly detailed action figure. Whether you're a fan of the light side or the dark side, this collectible is a must-have. Join the epic saga and relive iconic moments with this Star Wars action figure!"
+  },
+  {
+    "picture": "path/to/picture5.jpg",
+    "name": "Avatar Action Figure",
+    "price": 32.99,
+    "ratings": 4.6,
+    "category": "Avatar",
+    "sellerName": "Elemental Toys",
+    "quantity": 3,
+    "sellerEmail": "seller@example.com",
+    "description": "Enter the mystical world of Avatar with this stunning action figure. Featuring intricate detailing and realistic design, it's a true collector's item. Let your imagination soar as you embark on adventures in the enchanting realm of Avatar!"
+  }
+]

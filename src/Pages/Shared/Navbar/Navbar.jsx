@@ -37,9 +37,14 @@ const Navbar = () => {
                 <Link>All Toys</Link>
               </li>
               {user && (
-                <li>
-                  <Link>My Toys</Link>
-                </li>
+                <>
+                  <li>
+                    <Link>My Toys</Link>
+                  </li>
+                  <li>
+                    <Link>Add Toys</Link>
+                  </li>
+                </>
               )}
               <li>
                 <Link>Blog</Link>
@@ -51,13 +56,23 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 font-semibold font-Nunito">
             <li>
               <Link>Home</Link>
             </li>
             <li>
               <Link>All Toys</Link>
             </li>
+            {user && (
+              <>
+                <li>
+                  <Link>My Toys</Link>
+                </li>
+                <li>
+                  <Link to="/add-toy">Add Toys</Link>
+                </li>
+              </>
+            )}
             <li>
               <Link>Blog</Link>
             </li>
@@ -68,7 +83,7 @@ const Navbar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img src="https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg" />
+                  <img src={user?.photoURL} />
                 </div>
               </label>
               <ul
@@ -77,8 +92,8 @@ const Navbar = () => {
               >
                 <p className="p-3">
                   Hi!{" "}
-                  <span className="font-black font-Nunito">
-                    UserName if Available
+                  <span className="font-bold font-Nunito">
+                    {user?.displayName}
                   </span>
                 </p>
                 <li>
