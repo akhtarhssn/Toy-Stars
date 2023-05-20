@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, handleLogout } = useContext(AuthContext);
   return (
     <header className="border-b border-b-gray-300">
       <div className="navbar bg-base-100 max-w-7xl container mx-auto">
@@ -33,6 +36,11 @@ const Navbar = () => {
               <li>
                 <Link>All Toys</Link>
               </li>
+              {user && (
+                <li>
+                  <Link>My Toys</Link>
+                </li>
+              )}
               <li>
                 <Link>Blog</Link>
               </li>
@@ -56,36 +64,45 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg" />
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src="https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg" />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <p className="p-3">
+                  Hi!{" "}
+                  <span className="font-black font-Nunito">
+                    UserName if Available
+                  </span>
+                </p>
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a>My Toys</a>
+                </li>
+                <li>
+                  <Link onClick={handleLogout}>Logout</Link>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link
+              className="border-2 py-3 px-8 rounded-md border-mediumPurple font-semibold text-mediumPurple hover:bg-mediumPurple hover:text-white duration-500"
+              to="/login"
             >
-              <p className="p-3">
-                Hi!{" "}
-                <span className="font-black font-Nunito">
-                  UserName if Available
-                </span>
-              </p>
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>My Toys</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div>
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </header>

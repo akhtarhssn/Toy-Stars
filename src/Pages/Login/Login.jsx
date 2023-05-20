@@ -1,14 +1,70 @@
+import { useContext, useState } from "react";
 import { FaFacebookF, FaGoogle, FaLinkedinIn } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
+  const handleSignIn = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    console.log(name, email, password);
+
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+        setSuccess("Login Successful");
+        setError("");
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setError(err.message);
+        setSuccess("");
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then(() => {
+        setSuccess("Google Signin Successful");
+        navigate(from, { replace: true });
+        setError("");
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setError(err.message);
+        setSuccess("");
+      });
+  };
   return (
     <div className="my-16 max-w-6xl container mx-auto">
       {/* form Start */}
       <div className="card w-full md:max-w-[550px] md:mx-auto border border-neutral-300 p-4 md:p-10 col-span-5">
         <h1 className="text-center text-4xl font-bold">Login</h1>
-
-        <form className="card-body p-0">
+        {error && (
+          <span className="my-5 text-center text-orange-400 font-medium border border-orange-400 p-2 rounded">
+            {error}
+          </span>
+        )}
+        {success && (
+          <span className="my-5 text-center text-blue-600 font-medium border border-blue-500 p-2 rounded">
+            {success}
+          </span>
+        )}
+        <form className="card-body p-0" onSubmit={handleSignIn}>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
@@ -45,10 +101,10 @@ const Login = () => {
           </div>
         </form>
         <p className="text-center text-lg mt-3">
-          New to CarDoctor?{" "}
+          New to Kiddie Corner?{" "}
           <Link
             to="/register"
-            className="text-medbg-mediumPurple font-semibold"
+            className="text-lg text-mediumPurple font-semibold"
           >
             Register
           </Link>
@@ -64,7 +120,10 @@ const Login = () => {
           <button className="p-4 text-[#0A66C2] bg-neutral-200 rounded-full hover:bg-mediumPurple hover:text-neutral-50 duration-300">
             <FaLinkedinIn />
           </button>
-          <button className="p-4 text-[#f12121] bg-neutral-200 rounded-full hover:bg-mediumPurple hover:text-neutral-50 duration-300">
+          <button
+            className="p-4 text-[#f12121] bg-neutral-200 rounded-full hover:bg-mediumPurple hover:text-neutral-50 duration-300"
+            onClick={handleGoogleSignIn}
+          >
             <FaGoogle />
           </button>
         </div>
