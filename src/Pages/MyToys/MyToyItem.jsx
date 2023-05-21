@@ -3,7 +3,7 @@ import { BsPencilSquare, BsFillTrashFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const MyToyItem = ({ toy, handleDelete }) => {
-  console.log(toy);
+  // console.log(toy);
   const { _id, title, image, price, rating } = toy;
   return (
     <div className="relative overflow-hidden group">

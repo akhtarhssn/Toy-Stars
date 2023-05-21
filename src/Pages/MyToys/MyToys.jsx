@@ -5,18 +5,31 @@ import Swal from "sweetalert2";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
-  const url = `https://kiddie-corner-server.vercel.app/my-toys?email=${user?.email}`;
   const [myToys, setMyToys] = useState([]);
+  const [sortOrder, setSortOrder] = useState(""); // Add sortOrder state
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
-    fetch(url)
+    fetch(
+      `https://kiddie-corner-server.vercel.app/my-toys?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
         setToys(data); // Set the initial value of `toys` to `data`
       });
-  }, [url]);
+  }, [user]);
+
+  const handleSort = (e) => {
+    const order = e.target.value;
+    setSortOrder(order);
+
+    let sortedToys = [...myToys];
+    sortedToys.sort((a, b) => {
+      return order === "asc" ? a.price - b.price : b.price - a.price;
+    });
+    setMyToys(sortedToys);
+  };
 
   const handleDelete = (id, toyName) => {
     Swal.fire({
@@ -63,6 +76,22 @@ const MyToys = () => {
       <p className="text-center font-semibold font-Nunito">
         Hover the product to Edit
       </p>
+      {/* Sorting select */}
+      <div className="flex justify-center my-4">
+        <label htmlFor="sortOrder" className="mr-2">
+          Sort by Price:
+        </label>
+        <select
+          id="sortOrder"
+          value={sortOrder}
+          onChange={handleSort}
+          className="px-4 py-2 bg-white rounded border-2"
+        >
+          <option value="">-- Select Order --</option>
+          <option value="asc">Low to High</option>
+          <option value="desc">High to Low</option>
+        </select>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 my-16 p-5">
         {/* row 1 */}
         {myToys.map((toy) => (
