@@ -23,7 +23,7 @@ const MyToys = () => {
           src="https://as1.ftcdn.net/v2/jpg/04/76/79/70/1000_F_476797090_GD9J6JoeR956o2yXxMBEqQEw0xnlgAx5.jpg"
           className="w-full object-cover object-center md:h-72 h-52 rounded-xl"
         />
-        <div className="absolute w-full h-full top-0 flex items-center bg-gradient-to-r from-mediumPurple to-[rgba(21, 21, 21, 0)] rounded-lg">
+        <div className="absolute w-full h-full top-0 flex items-center bg-gradient-to-r from-purple-800 to-[rgba(21, 21, 21, 0)] rounded-lg">
           <h2 className="text-4xl font-bold text-white ml-24">My Toys</h2>
         </div>
       </div>

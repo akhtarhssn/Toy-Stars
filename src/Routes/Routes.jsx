@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import MyToys from "../Pages/MyToys/MyToys";
 import SingleToy from "../Pages/SingleToy/SingleToy";
 import AllToys from "../Pages/AllToys/AllToys";
+import UpdateToy from "../Pages/MyToys/UpdateToy/UpdateToy";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,16 @@ const router = createBrowserRouter([
       {
         path: "all-toys",
         element: <AllToys />,
+      },
+      {
+        path: "update/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateToy />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://kiddie-corner-server.vercel.app/toys/${params.id}`),
       },
     ],
 

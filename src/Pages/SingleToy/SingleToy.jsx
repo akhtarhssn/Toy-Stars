@@ -6,7 +6,7 @@ import payment from "../../assets/payments-2.png";
 
 const SingleToy = () => {
   const toy = useLoaderData();
-  console.log(toy);
+  // console.log(toy);
   const {
     title,
     category,
