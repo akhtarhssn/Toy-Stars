@@ -1,6 +1,6 @@
 const Gallery = () => {
   return (
-    <div className="my-28 text-center">
+    <div className="my-28 text-center" data-aos="fade-up">
       <h2 className="text-3xl font-Nunito font-[800] md:text-5xl">
         Our Gallery
       </h2>

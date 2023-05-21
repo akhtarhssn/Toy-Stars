@@ -4,7 +4,7 @@ import hero3 from "../../../assets/banner/hero-3.png";
 import hero4 from "../../../assets/banner/hero-4.png";
 const Banner = () => {
   return (
-    <div className="carousel w-full md:my-16 ">
+    <div className="carousel w-full md:my-16 " data-aos="fade-up">
       <div id="slide1" className="carousel-item relative w-full h-full">
         <div className="flex md:flex-row flex-col-reverse gap-10 justify-end md:justify-between items-center md:w-full md:px-28">
           <div>

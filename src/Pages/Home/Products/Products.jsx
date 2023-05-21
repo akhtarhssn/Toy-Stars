@@ -39,7 +39,7 @@ const Products = () => {
     : products;
 
   return (
-    <div className="my-20">
+    <div className="my-20" data-aos="fade-up">
       <div className="text-center">
         <h2 className="text-2xl font-bold md:text-5xl font-Nunito">
           Our Products

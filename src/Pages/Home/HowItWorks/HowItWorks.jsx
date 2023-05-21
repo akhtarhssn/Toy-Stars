@@ -5,7 +5,10 @@ import support from "../../../assets/icons/support.webp";
 
 const HowItWorks = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:p-16 p-10 bg-[#EBECF0] rounded-2xl my-20 text-center">
+    <div
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:p-16 p-10 bg-[#EBECF0] rounded-2xl my-20 text-center"
+      data-aos="fade-up"
+    >
       <div>
         <div className="flex justify-center items-center">
           <img src={freeShipping} alt="Free Shipping Icon" />
