@@ -17,11 +17,12 @@ const MyToyItem = ({ toy, handleDelete }) => {
             <BsPencilSquare />
           </Link>
         </div>
-        <div className="px-3 py-3 flex justify-center items-center rounded-full bg-mediumPurple text-white cursor-pointer">
-          <button onClick={() => handleDelete(_id, title)}>
-            <BsFillTrashFill />
-          </button>
-        </div>
+        <button
+          className="px-3 py-3 flex justify-center items-center rounded-full bg-mediumPurple text-white cursor-pointer"
+          onClick={() => handleDelete(_id, title)}
+        >
+          <BsFillTrashFill />
+        </button>
       </div>
       <div>
         <h2 className="text-xl font-bold font-Nunito mt-4 mb-2">

@@ -60,6 +60,9 @@ const MyToys = () => {
           <h2 className="text-4xl font-bold text-white ml-24">My Toys</h2>
         </div>
       </div>
+      <p className="text-center font-semibold font-Nunito">
+        Hover the product to Edit
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 my-16 p-5">
         {/* row 1 */}
         {myToys.map((toy) => (

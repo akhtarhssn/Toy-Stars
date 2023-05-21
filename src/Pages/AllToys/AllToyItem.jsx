@@ -33,7 +33,7 @@ const AllToyItem = ({ products }) => {
       </div>
       <div>
         <h2 className="text-xl font-bold font-Nunito mt-4 mb-1">
-          {title.length > 30 ? `${title.substring(0, 25)}...` : title}
+          {title.length > 25 ? `${title.substring(0, 25)}...` : title}
         </h2>
         <p className="text-mediumPurple mb-3">
           <Link>{name && name}</Link>
@@ -54,7 +54,7 @@ const AllToyItem = ({ products }) => {
         </div>
         <div className="">
           <button
-            className="my-8 border-2 border-purple-600 rounded-md px-5 py-2"
+            className="my-2 border-2 border-purple-600 rounded-md px-5 py-2"
             onClick={handleToast}
           >
             <Link to={`/toys/${_id}`}>View Details</Link>
