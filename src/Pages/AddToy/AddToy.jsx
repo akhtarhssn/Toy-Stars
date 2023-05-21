@@ -28,7 +28,7 @@ const AddToy = () => {
       email,
       image,
       category_id: category.id.toString(), // Assign the selected category ID
-      category_name: category.name, // Assign the selected category name
+      category: category.name, // Assign the selected category name
       price,
       quantity,
       rating,
