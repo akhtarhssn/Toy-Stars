@@ -17,7 +17,7 @@ const UpdateToy = () => {
 
     console.log(updatedToy);
 
-    fetch(`http://localhost:5000/toys/${_id}`, {
+    fetch(`https://kiddie-corner-server.vercel.app/toys/${_id}`, {
       method: "PATCH",
       headers: { "content-Type": "application/json" },
       body: JSON.stringify(updatedToy),

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import MyToyItem from "./MyToyItem";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -15,6 +16,30 @@ const MyToys = () => {
         // console.log(data);
       });
   }, [url]);
+
+  const handleDelete = (id, toyName) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://kiddie-corner-server.vercel.app/toys/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire("Deleted!", `${toyName} has been removed`, "success");
+            }
+          });
+      }
+    });
+  };
 
   return (
     <>
@@ -33,7 +58,7 @@ const MyToys = () => {
           <MyToyItem
             key={toy._id}
             toy={toy}
-            // handleDelete={handleDelete}
+            handleDelete={handleDelete}
             // handleStatusChange={handleStatusChange}
           />
         ))}
