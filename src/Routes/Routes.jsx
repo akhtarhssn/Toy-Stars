@@ -10,6 +10,7 @@ import MyToys from "../Pages/MyToys/MyToys";
 import SingleToy from "../Pages/SingleToy/SingleToy";
 import AllToys from "../Pages/AllToys/AllToys";
 import UpdateToy from "../Pages/MyToys/UpdateToy/UpdateToy";
+import Blog from "../Pages/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`https://kiddie-corner-server.vercel.app/toys/${params.id}`),
+      },
+      {
+        path: "blog",
+        element: <Blog />,
       },
     ],
 
