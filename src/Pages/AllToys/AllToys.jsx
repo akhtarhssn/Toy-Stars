@@ -7,7 +7,7 @@ const AllToys = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch("https://kiddie-corner-server.vercel.app/toys")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

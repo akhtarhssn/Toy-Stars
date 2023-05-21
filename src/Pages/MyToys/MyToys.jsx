@@ -4,7 +4,7 @@ import MyToyItem from "./MyToyItem";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/my-toys?email=${user?.email}`;
+  const url = `https://kiddie-corner-server.vercel.app/my-toys?email=${user?.email}`;
   const [myToys, setMyToys] = useState([]);
 
   useEffect(() => {

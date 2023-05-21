@@ -7,13 +7,13 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch("https://kiddie-corner-server.vercel.app/toys")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/category")
+    fetch("https://kiddie-corner-server.vercel.app/category")
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.error(err));

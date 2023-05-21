@@ -37,7 +37,7 @@ const AddToy = () => {
     console.log(newToy);
 
     // Send/post data to server
-    fetch(`http://localhost:5000/add-toy`, {
+    fetch(`https://kiddie-corner-server.vercel.app/add-toy`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -54,7 +54,7 @@ const AddToy = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/category")
+    fetch("https://kiddie-corner-server.vercel.app/category")
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.error(err));
