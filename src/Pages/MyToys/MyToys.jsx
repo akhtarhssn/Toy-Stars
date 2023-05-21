@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import ToyItem from "./ToyItem";
+import MyToyItem from "./MyToyItem";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -30,7 +30,7 @@ const MyToys = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 my-16 p-5">
         {/* row 1 */}
         {myToys.map((toy) => (
-          <ToyItem
+          <MyToyItem
             key={toy._id}
             toy={toy}
             // handleDelete={handleDelete}

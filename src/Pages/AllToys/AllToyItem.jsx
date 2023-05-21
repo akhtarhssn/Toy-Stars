@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { FaStar } from "react-icons/fa";
-import { AuthContext } from "../../../Providers/AuthProvider";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
-const Product = ({ products }) => {
-  const { _id, title, image, price, rating } = products;
+const AllToyItem = ({ products }) => {
+  const { _id, title, image, price, rating, name, category, quantity } =
+    products;
   const { user } = useContext(AuthContext);
 
   const handleToast = () => {
@@ -21,7 +22,6 @@ const Product = ({ products }) => {
       });
     }
   };
-
   return (
     <div>
       <div className="overflow-hidden rounded-xl">
@@ -32,14 +32,25 @@ const Product = ({ products }) => {
         />
       </div>
       <div>
-        <h2 className="text-xl font-bold font-Nunito mt-4 mb-2">
+        <h2 className="text-xl font-bold font-Nunito mt-4 mb-1">
           {title.length > 30 ? `${title.substring(0, 25)}...` : title}
         </h2>
-        <div className="flex gap-8 items-center">
+        <p className="text-mediumPurple mb-3">
+          <Link>{name && name}</Link>
+        </p>
+        <div className="flex gap-4 items-center">
           <p className="text-lg font-bold text-purple-600">${price}</p>
-          <span className="px-2 py-1 border-gray-300 rounded-md flex gap-3 border items-center">
+          <span className="px-2 py-[2px] text-sm border-gray-300 rounded-md flex gap-3 border items-center">
             {rating} <FaStar />{" "}
           </span>
+        </div>
+        <div className="flex gap-5 my-4">
+          <p className="border border-gray-400 rounded px-3 font-medium">
+            {category}
+          </p>
+          <p className="border border-gray-400 rounded px-3 font-medium">
+            Quantity: {quantity}
+          </p>
         </div>
         <div className="">
           <button
@@ -54,4 +65,4 @@ const Product = ({ products }) => {
   );
 };
 
-export default Product;
+export default AllToyItem;
