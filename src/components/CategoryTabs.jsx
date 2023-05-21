@@ -14,9 +14,6 @@ const CategoryTabs = () => {
         Star Wars
       </button>
       <button className="py-2 px-6 border-2 rounded-md border-purple-500 text-lg font-semibold">
-        Invincible
-      </button>
-      <button className="py-2 px-6 border-2 rounded-md border-purple-500 text-lg font-semibold">
         Avatar
       </button>
     </div>

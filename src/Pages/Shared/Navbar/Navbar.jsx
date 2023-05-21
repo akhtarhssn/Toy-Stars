@@ -39,10 +39,10 @@ const Navbar = () => {
               {user && (
                 <>
                   <li>
-                    <Link>My Toys</Link>
+                    <Link to="/my-toys">My Toys</Link>
                   </li>
                   <li>
-                    <Link>Add Toys</Link>
+                    <Link to="/add-toy">Add Toys</Link>
                   </li>
                 </>
               )}
@@ -66,7 +66,7 @@ const Navbar = () => {
             {user && (
               <>
                 <li>
-                  <Link>My Toys</Link>
+                  <Link to="/my-toys">My Toys</Link>
                 </li>
                 <li>
                   <Link to="/add-toy">Add Toys</Link>

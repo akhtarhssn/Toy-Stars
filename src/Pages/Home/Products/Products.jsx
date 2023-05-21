@@ -1,7 +1,43 @@
-import CategoryTabs from "../../../components/CategoryTabs";
+import { useEffect, useState } from "react";
 import Product from "./Product";
 
 const Products = () => {
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/toys")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/category")
+      .then((res) => res.json())
+      .then((data) => setCategories(data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  const handleCategoryClick = (categoryId) => {
+    setSelectedCategory(categoryId);
+  };
+
+  // Filter products based on the selected category
+  const getFilteredProducts = (categoryId) => {
+    if (categoryId === "all") {
+      return products;
+    } else {
+      return products.filter(
+        (product) => product.category_id === categoryId.toString()
+      );
+    }
+  };
+
+  const filteredProducts = selectedCategory
+    ? getFilteredProducts(selectedCategory)
+    : products;
+
   return (
     <div className="my-20">
       <div className="text-center">
@@ -14,15 +50,24 @@ const Products = () => {
           collection of captivating products.
         </p>
       </div>
-      <CategoryTabs />
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 my-16">
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+      {/* CategoryTab Section */}
+      <div className="flex justify-center items-center my-10 gap-5">
+        {categories.map((category) => (
+          <button
+            key={category.id}
+            className={`py-2 px-6 border-2 rounded-md text-lg font-semibold ${
+              selectedCategory === category.id ? "border-purple-500" : ""
+            }`}
+            onClick={() => handleCategoryClick(category.id)}
+          >
+            {category.name}
+          </button>
+        ))}
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 my-16 p-5">
+        {filteredProducts.map((product) => (
+          <Product key={product._id} products={product} />
+        ))}
       </div>
     </div>
   );

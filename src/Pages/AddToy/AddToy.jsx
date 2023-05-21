@@ -1,15 +1,18 @@
-// import { useContext } from "react";
-// import { AuthContext } from "../../Providers/AuthProvider";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
-  // const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const handleAddToy = (event) => {
     event.preventDefault();
 
     const form = event.target;
 
-    const name = form.title.value;
+    const title = form.title.value;
+    const name = user?.displayName;
+    const email = user?.email;
     const image = form.toy_img.value;
     const category = form.toy_category.value;
     const price = form.toy_price.value;
@@ -17,7 +20,17 @@ const AddToy = () => {
     const rating = form.toy_rating.value;
     const details = form.toy_details.value;
 
-    const newToy = { name, image, category, price, quantity, rating, details };
+    const newToy = {
+      title,
+      name,
+      email,
+      image,
+      category,
+      price,
+      quantity,
+      rating,
+      details,
+    };
     console.log(newToy);
 
     // Send/post data to server
@@ -31,6 +44,9 @@ const AddToy = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.insertedId) {
+          Swal.fire("Add Successful", `${title}`, "success");
+        }
       });
   };
 
