@@ -7,13 +7,14 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const url = `https://kiddie-corner-server.vercel.app/my-toys?email=${user?.email}`;
   const [myToys, setMyToys] = useState([]);
+  const [toys, setToys] = useState([]);
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
-        // console.log(data);
+        setToys(data); // Set the initial value of `toys` to `data`
       });
   }, [url]);
 
@@ -36,6 +37,13 @@ const MyToys = () => {
             if (data.deletedCount) {
               Swal.fire("Deleted!", `${toyName} has been removed`, "success");
             }
+
+            const remaining = myToys.filter((toy) => toy._id !== id);
+            setMyToys(remaining); // Update the `myToys` state
+
+            const updated = myToys.find((toy) => toy._id === id);
+            const newToys = [updated, ...remaining];
+            setToys(newToys); // Update the `toys` state
           });
       }
     });
