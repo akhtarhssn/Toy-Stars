@@ -1,9 +1,11 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const handleAddToy = (event) => {
     event.preventDefault();
@@ -14,7 +16,7 @@ const AddToy = () => {
     const name = user?.displayName;
     const email = user?.email;
     const image = form.toy_img.value;
-    const category = form.toy_category.value;
+    const category = selectedCategory;
     const price = form.toy_price.value;
     const quantity = form.toy_quantity.value;
     const rating = form.toy_rating.value;
@@ -25,7 +27,8 @@ const AddToy = () => {
       name,
       email,
       image,
-      category,
+      category_id: category.id.toString(), // Assign the selected category ID
+      category_name: category.name, // Assign the selected category name
       price,
       quantity,
       rating,
@@ -49,6 +52,13 @@ const AddToy = () => {
         }
       });
   };
+
+  useEffect(() => {
+    fetch("http://localhost:5000/category")
+      .then((res) => res.json())
+      .then((data) => setCategories(data))
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <div className="md:max-w-2xl container mx-auto my-20">
@@ -88,15 +98,27 @@ const AddToy = () => {
               <label className="label">
                 <span className="label-text">Category</span>
               </label>
-              <select className="select select-bordered" name="toy_category">
-                <option disabled defaultChecked>
+              <select
+                className="select select-bordered"
+                name="toy_category"
+                value={selectedCategory ? selectedCategory.id : ""}
+                onChange={(e) => {
+                  const categoryId = e.target.value;
+                  const category = categories.find(
+                    (category) => category.id === Number(categoryId)
+                  );
+                  setSelectedCategory(category);
+                }}
+                required
+              >
+                <option disabled value="">
                   Select one
                 </option>
-                <option>Star Wars</option>
-                <option>Marvel</option>
-                <option>DC</option>
-                <option>Transformers</option>
-                <option>Avatar</option>
+                {categories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="form-control w-full">

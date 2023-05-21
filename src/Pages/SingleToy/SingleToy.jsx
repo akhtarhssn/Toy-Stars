@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { Rating } from "@smastrom/react-rating";
 import { FaShoppingBag } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
+import payment from "../../assets/payments-2.png";
 
 const SingleToy = () => {
   const toy = useLoaderData();
@@ -47,9 +48,9 @@ const SingleToy = () => {
           <p>
             <span className="font-semibold ">Quantity:</span> {quantity}
           </p>
-          <p>
-            <span className="font-semibold ">Category:</span> {category}
-          </p>
+        </div>
+        <div className="bg-mediumPurple bg-opacity-10 rounded-md py-14 px-10 my-5 flex justify-center">
+          <img src={payment} alt="" />
         </div>
         <div>
           <p className="text-lg font-semibold mt-7">Seller Information: </p>
