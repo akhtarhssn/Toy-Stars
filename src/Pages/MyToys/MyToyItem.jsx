@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const MyToyItem = ({ toy, handleDelete }) => {
   // console.log(toy);
-  const { _id, title, image, price, rating } = toy;
+  const { _id, name, title, image, price, rating, category, quantity } = toy;
   return (
     <div className="relative overflow-hidden group">
       <div className="overflow-hidden rounded-xl">
@@ -28,14 +28,25 @@ const MyToyItem = ({ toy, handleDelete }) => {
         <h2 className="text-xl font-bold font-Nunito mt-4 mb-2">
           {title.length > 30 ? `${title.substring(0, 25)}...` : title}
         </h2>
-        <div className="flex gap-8 items-center">
+        <p className="text-mediumPurple mb-3">
+          <Link>{name && name}</Link>
+        </p>
+        <div className="flex gap-4 items-center">
           <p className="text-lg font-bold text-purple-600">${price}</p>
-          <span className="px-2 py-1 border-gray-300 rounded-md flex gap-3 border items-center">
-            {rating} <FaStar />
+          <span className="px-2 py-[2px] text-sm border-gray-300 rounded-md flex gap-3 border items-center">
+            {rating} <FaStar />{" "}
           </span>
         </div>
+        <div className="flex gap-5 my-4">
+          <p className="border border-gray-400 rounded px-3 font-medium">
+            {category}
+          </p>
+          <p className="border border-gray-400 rounded px-3 font-medium">
+            Quantity: {quantity}
+          </p>
+        </div>
         <div className="">
-          <button className="my-8 border-2 border-purple-600 rounded-md px-5 py-2">
+          <button className="my-4 border-2 border-purple-600 rounded-md px-5 py-2">
             <Link to={`/toys/${_id}`}>View Details</Link>
           </button>
         </div>

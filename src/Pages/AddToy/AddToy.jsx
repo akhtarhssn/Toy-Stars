@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -21,6 +22,7 @@ const AddToy = () => {
     const quantity = form.toy_quantity.value;
     const rating = form.toy_rating.value;
     const details = form.toy_details.value;
+    const userPhoto = user?.photoURL;
 
     const newToy = {
       title,
@@ -33,6 +35,7 @@ const AddToy = () => {
       quantity,
       rating,
       details,
+      userPhoto,
     };
     console.log(newToy);
 
@@ -59,6 +62,7 @@ const AddToy = () => {
       .then((data) => setCategories(data))
       .catch((err) => console.error(err));
   }, []);
+  useTitle("Toy Stars | Add a Toy");
 
   return (
     <div className="md:max-w-2xl container mx-auto my-20">
@@ -88,7 +92,7 @@ const AddToy = () => {
               </label>
               <input
                 name="toy_img"
-                type="text"
+                type="url"
                 placeholder="Toy Image Url"
                 className="input input-bordered "
                 required
@@ -151,12 +155,15 @@ const AddToy = () => {
               </label>
               <input
                 name="toy_rating"
-                type="text"
+                type="number"
+                step="0.01"
+                max="5"
                 placeholder="rating"
-                className="input input-bordered "
+                className="input input-bordered"
                 required
               />
             </div>
+
             <div className="w-full mb-5">
               <label className="label">
                 <span className="label-text">Toy Details</span>

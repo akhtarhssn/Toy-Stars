@@ -4,8 +4,12 @@ import HowItWorks from "../HowItWorks/HowItWorks";
 import Products from "../Products/Products";
 import { useEffect } from "react";
 import AOS from "aos";
+import useTitle from "../../../hooks/useTitle";
+import Testimonials from "../Testimonials/Testimonials";
 
 const Home = () => {
+  useTitle("Toy Stars | Home");
+
   useEffect(() => {
     AOS.init({ duration: 800, once: true }); // Customize duration and other options
   }, []);
@@ -16,6 +20,7 @@ const Home = () => {
       <HowItWorks />
       <Gallery />
       <Products />
+      <Testimonials />
     </div>
   );
 };

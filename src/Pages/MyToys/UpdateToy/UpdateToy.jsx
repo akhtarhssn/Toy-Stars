@@ -1,10 +1,12 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../../hooks/useTitle";
 
 const UpdateToy = () => {
   const toy = useLoaderData();
   const { _id, title, price, quantity, details } = toy;
-
+  const nevigate = useNavigate();
+  useTitle(`Toy Stars | Update: ${title}`);
   const handleUpdate = (event) => {
     event.preventDefault();
 
@@ -13,9 +15,13 @@ const UpdateToy = () => {
     const updatedQuantity = form.toy_quantity.value;
     const updatedDetails = form.toy_details.value;
 
-    const updatedToy = { updatedPrice, updatedQuantity, updatedDetails };
+    const updatedToy = {
+      updatedPrice,
+      updatedQuantity,
+      updatedDetails,
+    };
 
-    console.log(updatedToy);
+    // console.log(updatedToy);
 
     fetch(`https://kiddie-corner-server.vercel.app/toys/${_id}`, {
       method: "PATCH",
@@ -24,9 +30,10 @@ const UpdateToy = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount) {
           Swal.fire("Modification Successful", `${title}`, "success");
+          nevigate("/my-toys");
         }
       });
   };

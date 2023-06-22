@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import AllToyItem from "./AllToyItem";
 import { FiSearch } from "react-icons/fi";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  useTitle("Toy Stars | All Toys");
 
   useEffect(() => {
-    fetch("https://kiddie-corner-server.vercel.app/toys")
+    fetch("https://kiddie-corner-server.vercel.app/all-toys")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -51,7 +53,7 @@ const AllToys = () => {
           <FiSearch />
         </button>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 my-16 p-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10 my-16 p-5">
         {handleSearch().map((product) => (
           <AllToyItem key={product._id} products={product} />
         ))}

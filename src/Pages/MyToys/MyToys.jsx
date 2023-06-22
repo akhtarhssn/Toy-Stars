@@ -1,13 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import MyToyItem from "./MyToyItem";
+// import MyToyItem from "./MyToyItem";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
+import ToyItemTest from "./ToyItemTest";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
   const [sortOrder, setSortOrder] = useState(""); // Add sortOrder state
   const [toys, setToys] = useState([]);
+  useTitle("Toy Stars | My Toys");
 
   useEffect(() => {
     fetch(
@@ -52,11 +55,7 @@ const MyToys = () => {
             }
 
             const remaining = myToys.filter((toy) => toy._id !== id);
-            setMyToys(remaining); // Update the `myToys` state
-
-            const updated = myToys.find((toy) => toy._id === id);
-            const newToys = [updated, ...remaining];
-            setToys(newToys); // Update the `toys` state
+            setMyToys(remaining);
           });
       }
     });
@@ -92,10 +91,10 @@ const MyToys = () => {
           <option value="desc">High to Low</option>
         </select>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 my-16 p-5">
+      <div className="my-16 grid grid-cols-1 md:grid-cols-2 gap-5 p-5 md:p-0">
         {/* row 1 */}
         {myToys.map((toy) => (
-          <MyToyItem
+          <ToyItemTest
             key={toy._id}
             toy={toy}
             handleDelete={handleDelete}

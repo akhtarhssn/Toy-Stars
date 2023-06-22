@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 
 const Footer = () => {
@@ -6,18 +7,38 @@ const Footer = () => {
       <div className="footer p-10 max-w-7xl container mx-auto text-base-content">
         <div>
           <img src={logo} alt="Logo" className="h-28" />
-          <p>
-            Toy Stars Ltd.
-            <br />
-            Providing reliable tech since 1992
-          </p>
+          <p className="text-center">&copy; Copyright Toy Start 2023</p>
         </div>
         <div>
-          <span className="footer-title">Services</span>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <span className="footer-title">Social</span>
+          <Link
+            className="link link-hover"
+            to="https://facebook.com"
+            target="_blank"
+          >
+            Facebook
+          </Link>
+          <Link
+            className="link link-hover"
+            to="https://instagram.com"
+            target="_blank"
+          >
+            Instagram
+          </Link>
+          <Link
+            className="link link-hover"
+            to="https://linkedin.com"
+            target="_blank"
+          >
+            LinkedIn
+          </Link>
+          <Link
+            className="link link-hover"
+            to="https://youtube.com"
+            target="_blank"
+          >
+            Youtube
+          </Link>
         </div>
         <div>
           <span className="footer-title">Company</span>

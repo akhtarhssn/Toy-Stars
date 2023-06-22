@@ -3,6 +3,7 @@ import { Rating } from "@smastrom/react-rating";
 import { FaShoppingBag } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import payment from "../../assets/payments-2.png";
+import useTitle from "../../hooks/useTitle";
 
 const SingleToy = () => {
   const toy = useLoaderData();
@@ -18,6 +19,7 @@ const SingleToy = () => {
     quantity,
     rating,
   } = toy;
+  useTitle(`Toy Stars | ${title}`);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-20 p-5 my-16">

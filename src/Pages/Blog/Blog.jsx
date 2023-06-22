@@ -1,4 +1,7 @@
+import useTitle from "../../hooks/useTitle";
+
 const Blog = () => {
+  useTitle("Toy Stars | Blog");
   return (
     <div className="my-16">
       <div className=" flex items-center justify-center bg-gradient-to-r from-amber-400 to-mediumPurple bg-opacity-80 h-full md:h-52 rounded-md">
@@ -61,7 +64,7 @@ const Blog = () => {
                 Question: What is MongoDB aggregate and how does it work ?
               </h4>
               <p className="text-gray-500 my-5">
-                MongoDB's aggregate is a powerful aggregation framework that
+                MongoDB`s aggregate is a powerful aggregation framework that
                 allows you to perform complex data manipulations and
                 transformations on documents within a collection. It provides a
                 flexible and efficient way to analyze and process data.

@@ -51,7 +51,7 @@ const Products = () => {
         </p>
       </div>
       {/* CategoryTab Section */}
-      <div className="flex justify-center items-center my-10 gap-5">
+      <div className="flex justify-center items-center my-10 gap-5 flex-wrap">
         {categories.map((category) => (
           <button
             key={category.id}
@@ -64,7 +64,7 @@ const Products = () => {
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 my-16 p-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10 my-16 p-5">
         {filteredProducts.map((product) => (
           <Product key={product._id} products={product} />
         ))}
