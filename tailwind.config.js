@@ -7,6 +7,7 @@ export default {
         Nunito: ["Nunito", "sans-serif"],
       },
       colors: {
+        // custom color
         mediumPurple: "#742CFE",
       },
     },
